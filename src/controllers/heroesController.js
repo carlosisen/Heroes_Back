@@ -7,12 +7,7 @@ const getAllHeroes= (req,res)=> {
 }
 
 const getOneHeroe= (req, res) => {
-    const existHero = heroesService.getAllHeroes().some(heroe => heroe.id === parseInt(req.params.id))
-    if(!existHero){
-        return res.status(404).json("Id not Found")
-    }
-
-    const oneHeroe= heroesService.getOneHeroe(parseInt(req.params.id))
+    const oneHeroe= heroesService.getOneHeroe(req.params.search)
     res.status(200).json(oneHeroe)
 }
 
