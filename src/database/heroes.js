@@ -4,8 +4,15 @@ const getAllHeroes= ()=> {
     return heroes
 }
 
-const getOneHeroe= (id)=>  {
-    const heroe= heroes.filter(hero=> hero.id === id)
+const getOneHeroe= (search)=>  {
+    const heroe= heroes.filter(
+            hero=> 
+                hero.name.toLowerCase().includes(search.toLowerCase())||
+                hero.alter_ego.toLowerCase().includes(search.toLowerCase())||
+                hero.characters.toLowerCase().includes(search.toLowerCase())
+            )
+    if (!heroe.length){
+        return "no coincidencies"}
     return heroe
 }
 

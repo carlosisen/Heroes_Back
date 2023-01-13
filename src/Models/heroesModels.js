@@ -6,13 +6,13 @@ const getAllHeroes = ()=>{
     const heroes= database.getAllHeroes()
     return heroes
 };
-const getOneHeroe = (id)=>{
-    const oneHeroe= database.getOneHeroe(id)
+const getOneHeroe = (search)=>{
+    const oneHeroe= database.getOneHeroe(search)
     return oneHeroe
 };
 const postNewHero = (newHero)=>{
     const heroes = database.getAllHeroes()
-    newID= heroes.map(hero=> hero.id).sort((a,b)=> a- b).pop() + 1
+    const newID= heroes.map(hero=> hero.id).sort((a,b)=> a- b).pop() + 1
     newHero= {id: newID, ...newHero}
     const createdHeroe= database.postNewHero(newHero)
     return createdHeroe
