@@ -4,7 +4,7 @@ const getAllHeroes= ()=> {
     return heroes
 }
 
-const getOneHeroe= (search)=>  {
+const searchHeroe= (search)=>  {
     search= search.toString().toLowerCase()
     const heroe= heroes.filter(
             hero=> 
@@ -15,6 +15,11 @@ const getOneHeroe= (search)=>  {
     if (!heroe.length){
         return "Sorry, no matches"}
     return heroe
+}
+
+const getOneHeroe= (id)=>{
+    const oneHero= heroes.filter(hero=> hero.id= id)
+    return oneHero
 }
 
 const postNewHero=  (newHero)=> {
@@ -36,6 +41,7 @@ const updateHero= (info, id)=> {
 
 module.exports = { 
     getAllHeroes,
+    searchHeroe,
     getOneHeroe,
     postNewHero,
     deleteHero,

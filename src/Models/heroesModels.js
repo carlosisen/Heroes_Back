@@ -6,18 +6,25 @@ const getAllHeroes = ()=>{
     const heroes= database.getAllHeroes()
     return heroes
 };
-const getOneHeroe = (search)=>{
-    const oneHeroe= database.getOneHeroe(search)
+
+const getOneHeroe= (id)=>{
+    const oneHero= database.getOneHeroe(id)
+    return oneHero
+}
+
+const searchHeroe = (search)=>{
+    const oneHeroe= database.searchHeroe(search)
     return oneHeroe
 };
+
 const postNewHero = (newHero)=>{
     const heroes = database.getAllHeroes()
     const newID= heroes.map(hero=> hero.id).sort((a,b)=> a- b).pop() + 1
     newHero= {id: newID, ...newHero}
     const createdHeroe= database.postNewHero(newHero)
     return createdHeroe
-
 };
+
 const deleteHero = (id)=>{
     const deletedHero= database.deleteHero(id)
     return deletedHero
@@ -31,6 +38,7 @@ const updateHero= (changes, id) => {
 module.exports= {
     getAllHeroes,
     getOneHeroe,
+    searchHeroe,
     postNewHero,
     deleteHero,
     updateHero
